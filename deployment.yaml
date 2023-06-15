@@ -2,7 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   annotations:
-    deployment.kubernetes.io/revision: "2"
+    deployment.kubernetes.io/revision: "3"
     image.openshift.io/triggers: '[{"from":{"kind":"ImageStreamTag","name":"java-app:latest","namespace":"app-deploy"},"fieldPath":"spec.template.spec.containers[?(@.name==\"java-app\")].image"}]'
     openshift.io/generated-by: OpenShiftNewApp
   creationTimestamp: "2023-06-15T14:26:03Z"
