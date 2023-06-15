@@ -2,11 +2,6 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   annotations:
-    deployment.kubernetes.io/revision: "3"
-    image.openshift.io/triggers: '[{"from":{"kind":"ImageStreamTag","name":"java-app:latest","namespace":"app-deploy"},"fieldPath":"spec.template.spec.containers[?(@.name==\"java-app\")].image"}]'
-    openshift.io/generated-by: OpenShiftNewApp
-  creationTimestamp: "2023-06-15T14:26:03Z"
-  generation: 2
   labels:
     app: java-app
     app.kubernetes.io/component: java-app
@@ -14,8 +9,6 @@ metadata:
     app.kubernetes.io/name: java-app
   name: java-app
   namespace: app-deploy
-  resourceVersion: "1357986"
-  uid: 3e044cc7-1c55-4292-8d70-0e6ba17a0eec
 spec:
   progressDeadlineSeconds: 600
   replicas: 1
