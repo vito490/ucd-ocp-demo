@@ -29,7 +29,7 @@ spec:
         deployment: java-app
     spec:
       containers:
-      - image: docker.io/vito490/simple-java-endpoint@sha256:7fe9f8162458e7f5e80bab28ba8b1ca7a9f3c2b0d183617cca6d041c6c38c51f
+      - image: docker.io/vito490/graphql-java-endpoint:1.0
         imagePullPolicy: IfNotPresent
         name: java-app
         resources: {}
