@@ -30,7 +30,7 @@ spec:
     spec:
       containers:
       - image: docker.io/vito490/graphql-java-endpoint:1.0
-        imagePullPolicy: IfNotPresent
+        imagePullPolicy: Always
         name: java-app
         resources: {}
         terminationMessagePath: /dev/termination-log
