@@ -3,6 +3,7 @@ kind: Deployment
 metadata:
   annotations:
   labels:
+    app.merge: test
     app: java-app-1
     app.kubernetes.io/component: java-app
     app.kubernetes.io/instance: java-app
