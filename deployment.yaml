@@ -4,7 +4,7 @@ metadata:
   annotations:
   labels:
     app.merge: test-4
-    app.fix: FIX-55
+    app.fix: FIX-56
     app: java-app-1
     app.kubernetes.io/component: java-app
     app.kubernetes.io/instance: java-app
