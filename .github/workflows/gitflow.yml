@@ -1,0 +1,70 @@
+# This is a basic workflow to help you get started with Actions
+
+name: CI
+
+# Controls when the workflow will run
+on:
+  # Triggers the workflow on push or pull request events but only for the "main" branch
+  push:
+    branches: [ "main" ]
+
+
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Make GraphQL Request
+        run: |
+          curl -X POST -H "Authorization: Bearer xxxx" \
+               -H "Content-Type: application/json" \
+               -H "Accept: application/json"
+               -d '{mutation 
+                     {uploadBuildData(
+                        data: {
+                          id: \"fix-56-second-build\"
+                          name: \"fix-56-second-build\"
+                          status: success
+                          application: 
+                            { name: \"ocp-demo-app\"
+                              id: \"63f090ae-54ac-45d5-abe6-9a566c604fcf\"
+                            }
+                          url: \"https://github.com/vito490/ucd-ocp-demo/actions/runs/13903396179\"
+                          requestor: \"vito490\"
+                          tenantId: \"5ade13625558f2c6688d15ce\"
+                          revision: \"5c44578fd02e4fa7e65d5e90c9b93cdc255f4c94\"
+                          startTime: \"1710685912345\"
+                        }
+                      )
+                    { _id
+                      id
+                      name
+                      status
+                      url
+                      startTime
+                      endTime
+                      requestor
+                      revision
+                      number
+                      labels
+                      source
+                      branch
+                      parameters {
+                        name
+                        value
+                        source
+                      }
+                      application {
+                        id
+                        externalId
+                        name
+                      }
+                    }
+                  }",
+                  "variables":{},
+                  "operationName":null
+                }' \
+               https://velocity.apps.67a34e6d234e92463ac6bbee.eu1.techzone.ibm.com/release-events-api/graphql
