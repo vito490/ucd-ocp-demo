@@ -22,6 +22,7 @@ jobs:
           curl -X POST -H "Authorization: Bearer xxxx" \
                -H "Content-Type: application/json" \
                -H "Accept: application/json"
+               --location https://velocity.apps.67a34e6d234e92463ac6bbee.eu1.techzone.ibm.com/release-events-api/graphql
                -d '{mutation 
                      {uploadBuildData(
                         data: {
@@ -66,5 +67,4 @@ jobs:
                   }",
                   "variables":{},
                   "operationName":null
-                }' \
-               https://velocity.apps.67a34e6d234e92463ac6bbee.eu1.techzone.ibm.com/release-events-api/graphql
+                }'
