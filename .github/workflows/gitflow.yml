@@ -26,17 +26,17 @@ jobs:
                -d '{mutation 
                      {uploadBuildData(
                         data: {
-                          id: \"fix-56-second-build\"
-                          name: \"fix-56-second-build\"
+                          id: \"${{github.sha}}\"
+                          name: \"${{github.sha}}\"
                           status: success
                           application: 
                             { name: \"ocp-demo-app\"
                               id: \"63f090ae-54ac-45d5-abe6-9a566c604fcf\"
                             }
-                          url: \"https://github.com/vito490/ucd-ocp-demo/actions/runs/13903396179\"
+                          url: \"https://github.com/vito490/ucd-ocp-demo/actions/runs/${{github.run_id}}\"
                           requestor: \"vito490\"
                           tenantId: \"5ade13625558f2c6688d15ce\"
-                          revision: \"5c44578fd02e4fa7e65d5e90c9b93cdc255f4c94\"
+                          revision: \"${{github.sha}}\"
                           startTime: \"1710685912345\"
                         }
                       )
