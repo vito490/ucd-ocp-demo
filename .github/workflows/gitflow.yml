@@ -19,7 +19,7 @@ jobs:
     steps:
       - name: Make GraphQL Request
         run: |
-          curl -X POST -H "Authorization: Bearer xxxx" \
+          curl -X POST -H "Authorization: UserAccessKey ${{ secrets.VELOCITY_TOKEN }}" \
                -H "Content-Type: application/json" \
                -H "Accept: application/json" \
                --location https://velocity.apps.67a34e6d234e92463ac6bbee.eu1.techzone.ibm.com/release-events-api/graphql \
