@@ -24,7 +24,7 @@ jobs:
                -H "Content-Type: application/json" \
                -H "Accept: application/json" \
                --location https://velocity.apps.67a34e6d234e92463ac6bbee.eu1.techzone.ibm.com/release-events-api/graphql \
-               -d '{mutation 
+               -d 'mutation 
                      {uploadBuildData(
                         data: {
                           id: \"${{github.sha}}\"
@@ -65,7 +65,4 @@ jobs:
                         name
                       }
                     }
-                  }",
-                  "variables":{},
-                  "operationName":null
-                }'
+                  }'
