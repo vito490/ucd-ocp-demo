@@ -16,6 +16,7 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    environment: demo 
     steps:
       - name: Make GraphQL Request
         run: |
