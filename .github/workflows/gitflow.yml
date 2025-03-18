@@ -18,10 +18,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Make GraphQL Request
-        env: 
-          VELOCITY_TOKEN_ENV: ${{ secrets.VELOCITY_TOKEN }}
         run: |
-          curl -X POST -H "Authorization: UserAccessKey $VELOCITY_TOKEN_ENV" \
+          curl -X POST -H "Authorization: UserAccessKey ${{secrets.VELOCITY_TOKEN}}" \
                -H "Content-Type: application/json" \
                -H "Accept: application/json" \
                --location https://velocity.apps.67a34e6d234e92463ac6bbee.eu1.techzone.ibm.com/release-events-api/graphql \
