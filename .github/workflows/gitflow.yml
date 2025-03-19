@@ -17,7 +17,14 @@ jobs:
   build:
     runs-on: ubuntu-latest
     environment: demo 
+    
     steps:
+      - name: Get Start Timestamp
+        id: startDate
+        run: echo "::set-output name=startDate::$(date +"%Y%m%d%H%M%S")    
+      - name: Get End Timestamp
+        id: endDate
+        run: echo "::set-output name=endDate::$(date +"%Y%m%d%H%M%S")    
       - name: Make GraphQL Request
         run: |
           curl -X POST -H "Authorization: UserAccessKey ${{secrets.VELOCITY_TOKEN}}" \
@@ -25,7 +32,7 @@ jobs:
                -H "Accept: application/json" \
                --location https://velocity.apps.67a34e6d234e92463ac6bbee.eu1.techzone.ibm.com/release-events-api/graphql \
                -d '{
-                   "query":"mutation {  uploadBuildData(    data: {      id: \"${{github.sha}}\"      name: \"${{github.sha}}\"      status: success      application: {        name: \"ocp-demo-app\"        id: \"63f090ae-54ac-45d5-abe6-9a566c604fcf\"      }      url: \"https://github.com/vito490/ucd-ocp-demo/actions/runs/${{github.run_id}}\"      requestor: \"vito490\"      tenantId: \"5ade13625558f2c6688d15ce\"      revision: \"${{github.sha}}\"      startTime: \"$(date +"%Y%m%d%H%M%S")\" endTime: \"$(date +"%Y%m%d%H%M%S")\"  }  ) {    _id    id    name    status    url    startTime    endTime    requestor    revision    number    labels    source    branch    parameters {      name      value      source    }    application {      id      externalId      name    }  }}",
+                   "query":"mutation {  uploadBuildData(    data: {      id: \"${{github.sha}}\"      name: \"${{github.sha}}\"      status: success      application: {        name: \"ocp-demo-app\"        id: \"63f090ae-54ac-45d5-abe6-9a566c604fcf\"      }      url: \"https://github.com/vito490/ucd-ocp-demo/actions/runs/${{github.run_id}}\"      requestor: \"vito490\"      tenantId: \"5ade13625558f2c6688d15ce\"      revision: \"${{github.sha}}\"      startTime: \"${{ steps.startDate.outputs.startDate }}\" endTime: \"${{ steps.endDate.outputs.endDate }}\"  }  ) {    _id    id    name    status    url    startTime    endTime    requestor    revision    number    labels    source    branch    parameters {      name      value      source    }    application {      id      externalId      name    }  }}",
                    "variables":{},
                    "operationName":null
                   }'
