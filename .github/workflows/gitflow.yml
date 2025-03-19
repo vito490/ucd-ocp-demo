@@ -21,10 +21,10 @@ jobs:
     steps:
       - name: Get Start Timestamp
         id: startDate
-        run: echo "::set-output name=startDate::$(date +"%Y%m%d%H%M%S")    
+        run: echo "::set-output name=startDate::$(date +"%Y%m%d%H%M%S")"    
       - name: Get End Timestamp
         id: endDate
-        run: echo "::set-output name=endDate::$(date +"%Y%m%d%H%M%S")    
+        run: echo "::set-output name=endDate::$(date +"%Y%m%d%H%M%S")"    
       - name: Make GraphQL Request
         run: |
           curl -X POST -H "Authorization: UserAccessKey ${{secrets.VELOCITY_TOKEN}}" \
